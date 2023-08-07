@@ -8,7 +8,6 @@ export default {
   name: "TaskView",
   components: {
     TaskList,
-    g,
   },
 };
 </script>
