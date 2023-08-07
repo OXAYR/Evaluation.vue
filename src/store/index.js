@@ -47,9 +47,9 @@ export default createStore({
     ADD_TASK(state, task) {
       state.tasks.push(task)
     },
-    DELETE_TASK(state, taskId) {
-      state.tasks = state.tasks.filter(task => task.id !== taskId);
-    },
+    DELETE_TASK(state, index) {
+      state.tasks.splice(index, 1)
+    }
   },
   actions: {
     createTask({ commit }, payload) {

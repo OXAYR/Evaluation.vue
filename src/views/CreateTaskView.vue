@@ -35,6 +35,7 @@ export default {
       todo: {
         title: "",
         desc: " ",
+        status: "In Progress",
       },
       error: [],
     };
