@@ -27,7 +27,7 @@ const routes = [
         component: TaskView
       },
       {
-        path: '/createTask',
+        path: '/createtaskview',
         component: CreateTaskView
       },
     ]

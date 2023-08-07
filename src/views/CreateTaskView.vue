@@ -1,31 +1,12 @@
-<template></template>
-
+<template>
+  <CreateTask />
+</template>
 <script>
-import { mapActions } from "vuex";
+import CreateTask from "@/components/CreateTask.vue";
 export default {
-  name: "CreateTask",
-  data() {
-    return {
-      todo: {
-        title: "",
-        desc: " ",
-        status: "In Progress",
-      },
-      error: [],
-    };
-  },
-
-  methods: {
-    ...mapActions({ createTask: "createTask" }),
-    validate(obj) {
-      if (obj.title != "" && obj.desc != "") {
-        this.createTask(obj);
-      } else {
-        this.error.push("enter values");
-      }
-    },
+  name: "CreateTaskView",
+  components: {
+    CreateTask,
   },
 };
 </script>
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>

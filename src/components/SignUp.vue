@@ -1,5 +1,6 @@
 <template>
-  <div class="card mt-32p-9 font-serif max-w-md mx-auto">
+  
+  <div class="card mt-32 p-9 font-serif max-w-md mx-auto">
     <h2 class="text-3xl font-medium text-center">Sign Up</h2>
     <input
       type="text"
