@@ -3,7 +3,7 @@
     <ul class="p-6 divide-y divide-slate-100 text-left">
       <li v-for="(task, id) in Task" :key="id">
         <p class="font-bold">Task title: {{ task.title }}</p>
-        <p class="clamp-1"><b>Description</b>{{ task.desc }}</p>
+        <p class="line-clamp-1"><b>Description</b>{{ task.desc }}</p>
       </li>
     </ul>
   </div>
