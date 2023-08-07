@@ -1,13 +1,28 @@
 <template>
-  <TaskList />
+  <div>
+    <ul class="p-6 divide-y divide-slate-100 text-left">
+      <li v-for="(task, id) in Task" :key="id">
+        <p class="font-bold">Task title: {{ task.title }}</p>
+        <p class="clamp-1"><b>Description</b>{{ task.desc }}</p>
+      </li>
+    </ul>
+  </div>
 </template>
-
 <script>
-import TaskList from "../components/TaskList.vue";
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: "TaskView",
-  components: {
-    TaskList,
+  computed: {
+    ...mapGetters({ Task: "getTasks" }),
+  },
+  methods: {
+    ...mapActions({ getTask: "getTasks" }),
+  },
+  created() {
+    this.getTask();
   },
 };
 </script>
+
+<style scoped></style>

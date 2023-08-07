@@ -1,9 +1,8 @@
 <template>
   <div class="home">
     <Nav />
-    <home class="mt-20" />
+    <Home />
     <router-view />
-    <TaskView />
   </div>
 </template>
 

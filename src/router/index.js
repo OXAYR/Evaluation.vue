@@ -20,9 +20,9 @@ const routes = [
     path: '/home',
     name: 'home',
     component: HomeView,
-    childrens:[
+    children: [
       {
-        path:'/tasklist',
+        path: 'taskview',
         component: TaskView
       },
     ]

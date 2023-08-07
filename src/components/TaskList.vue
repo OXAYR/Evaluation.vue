@@ -1,14 +1,11 @@
 <template>
   <div>
-    {{ Task }}
-    <!-- <ul class="p-6 divide-y divide-slate-100">
-      <li v-for="(tsk, id) in Task" :key="id">
-        {{ id }}
-        <p class="font-bold">Task title: {{ tsk.title }}</p>
-        <p class="clamp-1"><b>Description</b>{{ tsk.desc }}</p>
+    <ul class="p-6 divide-y divide-slate-100 text-left">
+      <li v-for="(task, id) in Task" :key="id">
+        <p class="font-bold">Task title: {{ task.title }}</p>
+        <p class="clamp-1"><b>Description</b>{{ task.desc }}</p>
       </li>
-      <p>{{ ta }}</p>
-    </ul>-->
+    </ul>
   </div>
 </template>
 <script>
