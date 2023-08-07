@@ -1,16 +1,12 @@
 <template>
-  <div class="hello">
-    <button class="bg-blue-300">
-      <router-link to="/createTask"> create Task </router-link>
-    </button>
-  </div>
+  <CreateTask />
 </template>
 
 <script>
+import CreateTask from "./CreateTask.vue";
 export default {
-  name: "home",
+  components: {
+    CreateTask,
+  },
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>

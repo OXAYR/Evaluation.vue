@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <Nav />
-    <router-view />
-    <Home />
+    <home class="mt-20" />
+    <router-view class="my-32" />
   </div>
 </template>
 

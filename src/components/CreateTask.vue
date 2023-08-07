@@ -1,0 +1,46 @@
+<template>
+  <div class="card mt-32 Login px-8 py-11 max-w-xl mx-auto">
+    <h1 class="text-center text-3xl font-medium font-serif">Enter a task</h1>
+    <input
+      type="text"
+      placeholder="Enter title"
+      v-model="todo.title"
+      class="mt-4 p-2 border border-gray-300 rounded-md w-full"
+    />
+    <textarea
+      type="text"
+      placeholder="Enter Description"
+      v-model="todo.desc"
+      class="mt-4 h-32 border border-gray-300 rounded-md w-full"
+    />
+    <router-link to="home/taskList">
+      <button
+        class="mt-4 px-12 py-2 bg-blue-200 hover:bg-blue-400 rounded-full"
+        @click="createTask(todo)"
+      >
+        <p class="text-black font-serif text-center">Create Task</p>
+      </button>
+    </router-link>
+  </div>
+</template>
+
+<script>
+import { mapActions } from "vuex";
+export default {
+  name: "CreateTask",
+  data() {
+    return {
+      todo: {
+        title: "",
+        desc: " ",
+      },
+    };
+  },
+
+  methods: {
+    ...mapActions({ createTask: "createTask" }),
+  },
+};
+</script>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped></style>
