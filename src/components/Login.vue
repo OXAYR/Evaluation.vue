@@ -15,7 +15,7 @@
     />
     <p v-if="error.length" class="text-red-500 text-sm">{{ error }}</p>
     <button
-      class="mt-4 px-28 py-2 bg-yellow-200 hover:bg-yellow-400 rounded-full"
+      class="mt-4 px-28 py-2 bg-blue-200 hover:bg-blue-400 rounded-full"
       @click="checkValidation(formLogin)"
     >
       <p class="text-black font-serif text-center">Login</p>

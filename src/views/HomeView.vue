@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="hom">
     <Nav />
     <router-view class="mt-32" />
     <Home />
