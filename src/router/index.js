@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import SignUpView from '../views/SignUpView.vue'
 import TaskView from '../views/TaskView.vue'
+import CreateTaskView from '../views/CreateTaskView.vue'
 
 
 const routes = [
@@ -22,8 +23,12 @@ const routes = [
     component: HomeView,
     children: [
       {
-        path: 'taskview',
+        path: '/taskview',
         component: TaskView
+      },
+      {
+        path: '/createTask',
+        component: CreateTaskView
       },
     ]
   },
