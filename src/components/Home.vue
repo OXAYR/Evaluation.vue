@@ -11,19 +11,5 @@
 <script>
 export default {
   name: "Home",
-  data() {
-    return {
-      clicked: false,
-    };
-  },
-  methods: {
-    checkClick() {
-      if (this.clicked == false) {
-        this.clicked = true;
-      } else {
-        this.clicked = false;
-      }
-    },
-  },
 };
 </script>

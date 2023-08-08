@@ -51,9 +51,6 @@ export default {
       }
     },
   },
-  mounted() {
-    console.log("state", this.$store.state.status);
-  },
 };
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
