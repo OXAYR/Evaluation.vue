@@ -26,7 +26,7 @@
           </select>
         </div>
         <div
-          class="col-span-3 flex flex-col items-end justify-between py-2 mt-3"
+          class="col-span-3 flex flex-col items-end justify-between py-2 mt-4"
         >
           <div
             v-show="item.status == 'Completed'"
@@ -48,7 +48,7 @@
           </div>
           <button
             @click="deleteItem(index)"
-            class="border border-rose-700 text-rose-500 font-medium rounded p-1 m-4"
+            class="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-medium rounded p-1 m-3"
           >
             Delete
           </button>
