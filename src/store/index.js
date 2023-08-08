@@ -63,3 +63,58 @@ export default createStore({
 })
 
 
+// import axios from 'axios'
+// import { createStore } from 'vuex'
+
+// export default createStore({
+//   state: {
+//     tasks: {},
+//     status: [{ name: 'In-Progress' }, { name: 'Completed' }, { name: 'Pending' }]
+//   },
+//   getters: {
+//     getTasks(state) {
+//       return state.tasks
+//     }
+//   },
+//   mutations: {
+//     SET_TASKS(state, tasks) {
+//       state.tasks = tasks
+//     },
+//     ADD_TASK(state, task) {
+//       // Assuming each task has a unique identifier 'id'
+//       state.tasks[task.id] = task
+//     },
+//     DELETE_TASK(state, taskId) {
+//       // Assuming each task has a unique identifier 'id'
+//       delete state.tasks[taskId]
+//     }
+//   },
+//   actions: {
+//     async fetchTasks({ commit }) {
+//       try {
+//         const response = await axios.get('/tasks')
+//         commit('SET_TASKS', response.data)
+//       } catch (error) {
+//         console.error('Error fetching tasks:', error)
+//       }
+//     },
+//     async createTask({ commit }, task) {
+//       try {
+//         const response = await axios.post('/tasks', task)
+//         commit('ADD_TASK', response.data)
+//       } catch (error) {
+//         console.error('Error creating task:', error)
+//       }
+//     },
+//     async deleteTask({ commit }, taskId) {
+//       try {
+//         await axios.delete(`/tasks/${taskId}`)
+//         commit('DELETE_TASK', taskId)
+//       } catch (error) {
+//         console.error('Error deleting task:', error)
+//       }
+//     }
+//   }
+// })
+
+

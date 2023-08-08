@@ -15,18 +15,17 @@
       class="mt-4 h-32 border border-gray-300 rounded-md w-full"
     />
     <p v-if="error.length" class="text-red-500 text-sm">{{ error }}</p>
-    <router-link to="/taskview">
-      <button
-        class="mt-4 px-12 py-2 bg-blue-200 hover:bg-blue-400 rounded-full"
-        @click="validate(todo)"
-      >
-        <p class="text-black font-serif text-center">Submit</p>
-      </button>
-    </router-link>
+    <button
+      class="mt-4 px-12 py-2 bg-blue-200 hover:bg-blue-400 rounded-full"
+      @click="validate(todo)"
+    >
+      <p class="text-black font-serif text-center">Submit</p>
+    </button>
   </div>
 </template>
 
 <script>
+import router from "@/router";
 import { mapActions } from "vuex";
 export default {
   name: "CreateTask",
@@ -46,6 +45,7 @@ export default {
     validate(obj) {
       if (obj.title != "" && obj.desc != "") {
         this.createTask(obj);
+        router.push("/taskview");
       } else {
         this.error.push("enter values");
       }
