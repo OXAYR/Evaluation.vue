@@ -43,7 +43,7 @@ export default {
   methods: {
     ...mapActions({ createTask: "createTask" }),
     validate(obj) {
-      if (obj.title != "" && obj.desc != "") {
+      if (obj.title != "") {
         this.createTask(obj);
         router.push("/taskview");
       } else {
