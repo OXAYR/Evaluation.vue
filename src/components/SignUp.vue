@@ -1,5 +1,4 @@
 <template>
-  
   <div class="card mt-32 p-9 font-serif max-w-md mx-auto">
     <h2 class="text-3xl font-medium text-center">Sign Up</h2>
     <input
@@ -95,11 +94,4 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-fieldset {
-  margin-bottom: 2rem;
-}
-.Button {
-  margin-top: 2rem;
-}
-</style>
+<style scoped></style>

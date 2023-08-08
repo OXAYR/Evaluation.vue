@@ -25,26 +25,26 @@
             </option>
           </select>
         </div>
-        <div class="col-span-3 flex flex-col items-end justify-between">
-          <div class="py-2">
-            <div
-              v-show="item.status == 'Completed'"
-              class="bg-green-500 text-white rounded-full px-2"
-            >
-              {{ item.status }}
-            </div>
-            <div
-              v-show="item.status == 'Pending'"
-              class="bg-rose-500 text-white rounded-full px-2"
-            >
-              {{ item.status }}
-            </div>
-            <div
-              v-show="item.status == 'In-Progress'"
-              class="bg-blue-500 text-white rounded-full px-2"
-            >
-              {{ item.status }}
-            </div>
+        <div
+          class="col-span-3 flex flex-col items-end justify-between py-2 mt-3"
+        >
+          <div
+            v-show="item.status == 'Completed'"
+            class="bg-green-500 text-white rounded-full px-2"
+          >
+            {{ item.status }}
+          </div>
+          <div
+            v-show="item.status == 'Pending'"
+            class="bg-rose-500 text-white rounded-full px-2"
+          >
+            {{ item.status }}
+          </div>
+          <div
+            v-show="item.status == 'In-Progress'"
+            class="bg-blue-500 text-white rounded-full px-2"
+          >
+            {{ item.status }}
           </div>
           <button
             @click="deleteItem(index)"
