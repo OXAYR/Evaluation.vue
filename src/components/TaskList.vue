@@ -1,33 +1,38 @@
 <template>
   <div class="border card border-gray-200">
     <h1 class="font-bold text-3xl text-left">Tasks</h1>
-    <ul class="p-4 mt-4 divide-y divide-slate-300 text-left shadow-md">
+    <ul class="p-4 card divide-y divide-slate-300 text-left shadow-md">
       <li v-for="(item, index) in items" :key="index">
-        <p class="font-bold">{{ item.title }}</p>
+        <p class="font-bold mt-4">{{ item.title }}</p>
         <p class="line-clamp-1 font-extralight">
           <b>{{ descriptionLabel }}</b> {{ item.desc }}
         </p>
-        <select v-model="item.status" class="border border-black my-5">
-          <option value="pending">To Do</option>
-          <option value="in-progress">In Progress</option>
-          <option value="completed">Done</option>
+        <select
+          v-model="item.status"
+          :value="$store.state.status[0].name"
+          class="border border-black my-5"
+        >
+          <option v-for="status in $store.state.status" :key="status">
+            {{ status.name }}
+          </option>
         </select>
+        <!-- {{ $store.status }} -->
         <div class="flex flex-col items-end">
           <div class="py-2 px-2">
             <div
-              v-show="item.status == `completed`"
+              v-show="item.status == `Completed`"
               class="bg-green-500 text-white rounded"
             >
               Completed
             </div>
             <div
-              v-show="item.status == `pending`"
+              v-show="item.status == `Pending`"
               class="bg-red-500 text-white rounded"
             >
               pending
             </div>
             <div
-              v-show="item.status == `in-progress`"
+              v-show="item.status == `In-Progress`"
               class="bg-blue-500 text-white rounded"
             >
               In progress

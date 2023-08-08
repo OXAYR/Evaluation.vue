@@ -26,7 +26,7 @@
 //       console.log(" response" + response)
 //       commit('SET_TASKS',response)
 //     },
-//     deleteTask( id) {
+//     deleteTask(_,id) {
 //       localStorage.removeItem(`${id}`)
 //     }
 //   }
@@ -36,7 +36,8 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    tasks: []
+    tasks: [],
+    status: [{name: 'In-Progress', color: 'blue'}, {name: 'Completed', color: 'green'}, {name: 'Pending', color: 'yellow'}]
   },
   getters: {
     getTasks(state) {
