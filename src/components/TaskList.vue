@@ -53,11 +53,12 @@
             Delete
           </button>
           <button
-            @click="editItem(index)"
+            @click="updateTask"
             class="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-medium rounded p-1 m-3"
           >
             Edit
           </button>
+          <EditTask v-show="editTask" :prevTask="item" :indx="index" />
         </div>
       </li>
     </ul>
@@ -66,15 +67,14 @@
 </template>
 
 <script>
+import EditTask from "./EditTask.vue";
+
 export default {
   name: "TaskList",
   data() {
     return {
+      editTask: false,
       flag: ["In-Progress", "Pending", "Completed"],
-      obj: {
-        title: null,
-        desc: null,
-      },
     };
   },
   props: {
@@ -84,9 +84,10 @@ export default {
     deleteItem(index) {
       this.$emit("delete-task", index);
     },
-    editItem(index) {
-      this.$emit("edit-item", index, this.obj);
+    updateTask() {
+      this.editTask = true;
     },
   },
+  components: { EditTask },
 };
 </script>

@@ -17,7 +17,7 @@ export default createStore({
       state.tasks.splice(index, 1)
     },
     UPDATE_TASK(state, index,data){
-      state.tasks[index]= data
+      state.tasks.splice(index,1,data)
     },
     UPDATE_STATUS(state,index,status){
       state.tasks[index].status = status
@@ -25,7 +25,6 @@ export default createStore({
   },
   actions: {
     createTask({ commit }, payload) {
-      console.log(payload)
       commit('ADD_TASK', payload)
     },
     deleteTask({ commit}, index) {
