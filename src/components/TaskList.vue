@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-10">
+  <div class="mx-10 my-32" @dblclick="updateTask">
     <h1 class="font-bold text-3xl text-left">Tasks</h1>
     <ul
       v-if="items.length"
@@ -19,6 +19,7 @@
             v-model="item.status"
             value="item.status"
             class="border border-black my-5 max-w-md"
+            @click="updateStatus(index, item.status)"
           >
             <option v-for="status in flag" :key="status">
               {{ status }}
@@ -52,14 +53,13 @@
           >
             Delete
           </button>
-          <button
-            @click="updateTask"
-            class="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-medium rounded p-1 m-3"
-          >
-            Edit
-          </button>
-          <EditTask v-show="editTask" :prevTask="item" :indx="index" />
         </div>
+        <EditTask
+          v-show="editTask"
+          :prevTask="item"
+          :indx="index"
+          class="flex flex-col col-span-5"
+        />
       </li>
     </ul>
     <p v-else>No tasks to show</p>
@@ -85,7 +85,11 @@ export default {
       this.$emit("delete-task", index);
     },
     updateTask() {
-      this.editTask = true;
+      if (this.editTask == false) this.editTask = true;
+      else this.editTask = false;
+    },
+    updateStatus(index, status) {
+      this.$emit("status-change", index, status);
     },
   },
   components: { EditTask },

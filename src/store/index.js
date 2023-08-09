@@ -16,10 +16,12 @@ export default createStore({
     DELETE_TASK(state, index) {
       state.tasks.splice(index, 1)
     },
-    UPDATE_TASK(state, index,data){
-      state.tasks.splice(index,1,data)
+    UPDATE_TASK(state, { index, data }) { 
+      console.log(" in mutation ", 'index---->', index, 'data----->', data);
+      state.tasks.splice(index, 1, data);
     },
     UPDATE_STATUS(state,index,status){
+      console.log(" in mutation ", 'index---->', index, 'status----->', status);
       state.tasks[index].status = status
     }
   },
@@ -30,10 +32,14 @@ export default createStore({
     deleteTask({ commit}, index) {
       commit('DELETE_TASK', index)
     },
-    updateTask({commit}, {id, data}){
-      console.log('id------>',id, '\n','data------>',data)
-      commit('UPDATE_TASK',id,data)
-  
+    updateTask({ commit }, { id, data }) {
+      console.log("in action", 'id------>', id, '\n', 'data------>', data);
+      commit('UPDATE_TASK', { index: id, data }); // Call the mutation with index and data
+    },
+    updateStatus({commit}, { id, status }){
+      console.log("in action", 'id------>', id, '\n', 'status------>', status);
+      commit('UPDATE_STATUS' ,{ index: id, status })
     }
+
   }
 })

@@ -1,26 +1,34 @@
 <template>
-  <div class="card flex justify-center">
-    <h2>Edit Task</h2>
-    <div>
-      <label>Title:</label>
+  <div class="card px-8 py-11 max-w-full flex flex-col items-center">
+    <h2 class="font-bold text-center mb-4 text-xl">Edit Task</h2>
+    <div class="w-full max-w-md">
+      <label class="block font-semibold mb-2">Title:</label>
       <input
-        :placeholder="prevTask.title"
         v-model="editedTask.title"
-        class="border border-black"
+        class="border border-black w-full px-3 py-2 mb-4"
       />
 
-      <label>Description:</label>
+      <label class="block font-semibold mb-2">Description:</label>
       <textarea
-        :placeholder="prevTask.desc"
         v-model="editedTask.desc"
-        class="border border-black"
-      />
-      <label>Status:</label>
-      <select v-model="editedTask.status">
+        class="border border-black w-full px-3 py-2 mb-4"
+      ></textarea>
+
+      <label class="block font-semibold mb-2">Status:</label>
+      <select
+        v-model="editedTask.status"
+        class="border border-black w-full px-3 py-2 mb-4"
+      >
         <option v-for="status in flag" :key="status">{{ status }}</option>
       </select>
 
-      <button type="submit" @click="updateTaskInStore">Update Task</button>
+      <button
+        type="submit"
+        @click="updateTaskInStore"
+        class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+      >
+        Update Task
+      </button>
     </div>
   </div>
 </template>
@@ -51,7 +59,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["updateTask"]), // Corrected the usage of mapActions
+    ...mapActions(["updateTask"]),
     updateTaskInStore() {
       this.updateTask({ id: this.indx, data: this.editedTask });
       router.push("/taskview");

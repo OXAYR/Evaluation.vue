@@ -1,5 +1,9 @@
 <template>
-  <TaskList :items="tasks" @delete-task="deleteTask" @edit-item="updateTask" />
+  <TaskList
+    :items="tasks"
+    @delete-task="deleteTask"
+    @status-change="updateStatus"
+  />
   <TaskPage />
 </template>
 
@@ -20,10 +24,10 @@ export default {
     deleteTask(index) {
       this.deleteTaskAction(index);
     },
-    // ...mapActions({ updateTaskAction: "updateTask" }),
-    // updateTask(index, task) {
-    //   this.updateTaskAction({ id: index, data: task });
-    // },
+    ...mapActions(["updateStatus"]),
+    updateStatusAction(index, status) {
+      this.updateStatus({ id: index, status });
+    },
   },
 };
 </script>
