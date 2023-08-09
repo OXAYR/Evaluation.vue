@@ -7,7 +7,14 @@ export default createStore({
   getters: {
     getTasks(state) {
       return state.tasks
-    }
+    },
+    getFilteredTasks(state) {
+      if (state.statusFilter === "All") {
+        return state.tasks;
+      } else {
+        return state.tasks.filter(task => task.status === state.statusFilter);
+      }
+    },
   },
   mutations: {
     ADD_TASK(state, task) {
@@ -20,7 +27,7 @@ export default createStore({
       console.log(" in mutation ", 'index---->', index, 'data----->', data);
       state.tasks.splice(index, 1, data);
     },
-    UPDATE_STATUS(state,index,status){
+    UPDATE_STATUS(state,{index,status}){
       console.log(" in mutation ", 'index---->', index, 'status----->', status);
       state.tasks[index].status = status
     }

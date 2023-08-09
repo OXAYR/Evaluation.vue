@@ -19,8 +19,11 @@
             v-model="item.status"
             value="item.status"
             class="border border-black my-5 max-w-md"
-            @click="updateStatus(index, item.status)"
+            @change="updateStatus(index, item.status)"
           >
+            {{
+              (index, item.status)
+            }}
             <option v-for="status in flag" :key="status">
               {{ status }}
             </option>
@@ -89,6 +92,7 @@ export default {
       else this.editTask = false;
     },
     updateStatus(index, status) {
+      console.log(index, status);
       this.$emit("status-change", index, status);
     },
   },

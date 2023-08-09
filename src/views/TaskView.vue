@@ -2,7 +2,7 @@
   <TaskList
     :items="tasks"
     @delete-task="deleteTask"
-    @status-change="updateStatus"
+    @status-change="updateStatusAction"
   />
   <TaskPage />
 </template>
