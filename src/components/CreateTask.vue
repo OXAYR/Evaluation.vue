@@ -36,8 +36,9 @@ export default {
       todo: {
         title: "",
         desc: " ",
-        status: this.$store.state.status[0].name,
+        status: "In-Progress",
       },
+
       error: "",
     };
   },

@@ -17,11 +17,11 @@
           </p>
           <select
             v-model="item.status"
-            :value="$store.state.status[0].name"
+            value="item.status"
             class="border border-black my-5 max-w-md"
           >
-            <option v-for="status in $store.state.status" :key="status">
-              {{ status.name }}
+            <option v-for="status in flag" :key="status">
+              {{ status }}
             </option>
           </select>
         </div>
@@ -29,19 +29,19 @@
           class="col-span-3 flex flex-col items-end justify-between py-2 mt-4"
         >
           <div
-            v-show="item.status == 'Completed'"
+            v-show="item.status === 'Completed'"
             class="bg-green-500 text-white rounded-full px-2"
           >
             {{ item.status }}
           </div>
           <div
-            v-show="item.status == 'Pending'"
+            v-show="item.status === 'Pending'"
             class="bg-rose-500 text-white rounded-full px-2"
           >
             {{ item.status }}
           </div>
           <div
-            v-show="item.status == 'In-Progress'"
+            v-show="item.status === 'In-Progress'"
             class="bg-blue-500 text-white rounded-full px-2"
           >
             {{ item.status }}
@@ -51,6 +51,12 @@
             class="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-medium rounded p-1 m-3"
           >
             Delete
+          </button>
+          <button
+            @click="editItem(index)"
+            class="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-medium rounded p-1 m-3"
+          >
+            Edit
           </button>
         </div>
       </li>
@@ -62,12 +68,24 @@
 <script>
 export default {
   name: "TaskList",
+  data() {
+    return {
+      flag: ["In-Progress", "Pending", "Completed"],
+      obj: {
+        title: null,
+        desc: null,
+      },
+    };
+  },
   props: {
     items: {},
   },
   methods: {
     deleteItem(index) {
       this.$emit("delete-task", index);
+    },
+    editItem(index) {
+      this.$emit("edit-item", index, this.obj);
     },
   },
 };
