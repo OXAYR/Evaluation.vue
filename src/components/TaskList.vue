@@ -54,13 +54,19 @@
           >
             Delete
           </button>
+          <button
+            @click="editItem(item)"
+            class="border border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-medium rounded p-1 m-3"
+          >
+            Edit
+          </button>
         </div>
-        <EditTask
+        <!-- <EditTask
           v-show="editTask === index"
           :prevTask="item"
           :indx="index"
           class="col-span-12"
-        />
+        /> -->
       </li>
     </ul>
     <p v-else>No tasks to show</p>
@@ -74,7 +80,7 @@ export default {
   name: "TaskList",
   data() {
     return {
-      editTask: false,
+      editTask: -1,
       flag: ["In-Progress", "Pending", "Completed"],
     };
   },
@@ -84,6 +90,9 @@ export default {
   methods: {
     deleteItem(index) {
       this.$emit("delete-task", index);
+    },
+    editItem(task) {
+      this.$router.push({ path: `/edit/${task.id}` });
     },
     updateTask(index) {
       if (this.editTask === index) {

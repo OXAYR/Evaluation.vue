@@ -34,11 +34,11 @@ export default {
   data() {
     return {
       todo: {
+        // id: 0,
         title: "",
         desc: " ",
         status: "In-Progress",
       },
-
       error: "",
     };
   },
@@ -47,6 +47,8 @@ export default {
     ...mapActions({ createTask: "createTask" }),
     validate(obj) {
       if (obj.title != "") {
+        // obj.id++;
+        console.log("from the create task-------> ", obj);
         this.createTask(obj);
         router.push("/taskview");
       } else {

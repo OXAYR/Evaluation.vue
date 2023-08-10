@@ -21,6 +21,7 @@
       >
         <option v-for="status in flag" :key="status">{{ status }}</option>
       </select>
+      {{ tasks }}
 
       <button
         type="submit"
@@ -35,7 +36,7 @@
 
 <script>
 import router from "@/router";
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "EditTask",
   props: {
@@ -51,11 +52,12 @@ export default {
   data() {
     return {
       editedTask: {
-        title: this.prevTask.title,
-        desc: this.prevTask.desc,
-        status: this.prevTask.status,
+        title: "",
+        desc: "",
+        status: "",
       },
       flag: ["In-Progress", "Pending", "Completed"],
+      id: this.$route.params.id,
     };
   },
   methods: {
@@ -63,6 +65,13 @@ export default {
     updateTaskInStore() {
       this.updateTask({ id: this.indx, data: this.editedTask });
       router.push("/taskview");
+    },
+  },
+  computed: {
+    ...mapGetters({ getTask: "getTasks" }),
+    tasks() {
+      // console.log(foundTask);
+      return this.getTask.find((task) => task.id == this.$route.params.id);
     },
   },
 };

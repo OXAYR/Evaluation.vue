@@ -4,6 +4,7 @@ import LoginView from '../views/LoginView.vue'
 import SignUpView from '../views/SignUpView.vue'
 import TaskView from '../views/TaskView.vue'
 import CreateTaskView from '../views/CreateTaskView.vue'
+import EditTask from '../components/EditTask.vue'
 
 
 const routes = [
@@ -30,6 +31,10 @@ const routes = [
         path: '/createtaskview',
         component: CreateTaskView
       },
+      {
+        path: '/edit/:id',
+        component: EditTask,
+      }
     ]
   },
   

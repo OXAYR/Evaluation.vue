@@ -2,7 +2,8 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    tasks: []
+    tasks: [],
+    count:0,
   },
   getters: {
     getTasks(state) {
@@ -15,10 +16,14 @@ export default createStore({
         return state.tasks.filter(task => task.status === state.statusFilter);
       }
     },
+    
   },
   mutations: {
     ADD_TASK(state, task) {
-      state.tasks.push(task)
+      const taskNew={
+        ...task,
+         id:++state.count}
+      state.tasks.push(taskNew)
     },
     DELETE_TASK(state, index) {
       state.tasks.splice(index, 1)
@@ -34,6 +39,7 @@ export default createStore({
   },
   actions: {
     createTask({ commit }, payload) {
+      // this.state.count++;
       commit('ADD_TASK', payload)
     },
     deleteTask({ commit}, index) {
@@ -46,7 +52,8 @@ export default createStore({
     updateStatus({commit}, { id, status }){
       console.log("in action", 'id------>', id, '\n', 'status------>', status);
       commit('UPDATE_STATUS' ,{ index: id, status })
-    }
+    },
+    
 
   }
 })
