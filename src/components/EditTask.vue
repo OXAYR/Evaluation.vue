@@ -63,7 +63,8 @@ export default {
   methods: {
     ...mapActions(["updateTask"]),
     updateTaskInStore() {
-      this.updateTask({ id: this.indx, data: this.editedTask });
+      console.log("in thhe edit task----> ", this.id);
+      this.updateTask({ id: this.id, data: this.editedTask });
       router.push("/taskview");
     },
   },

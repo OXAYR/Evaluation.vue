@@ -14,7 +14,7 @@
     <textarea
       type="text"
       placeholder="Enter Description"
-      v-model="todo.desc"
+      v-model="todo.description"
       class="mt-4 h-32 border border-gray-300 rounded-md w-full"
     />
     <button
@@ -36,7 +36,7 @@ export default {
       todo: {
         // id: 0,
         title: "",
-        desc: " ",
+        description: " ",
         status: "In-Progress",
       },
       error: "",

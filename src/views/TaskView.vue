@@ -22,12 +22,18 @@ export default {
   methods: {
     ...mapActions({ deleteTaskAction: "deleteTask" }),
     deleteTask(index) {
+      console.log("deleted node------> ", index);
       this.deleteTaskAction(index);
     },
     ...mapActions(["updateStatus"]),
     updateStatusAction(index, status) {
       this.updateStatus({ id: index, status });
     },
+    ...mapActions({ task: "getTask" }),
+  },
+
+  created() {
+    this.task();
   },
 };
 </script>
